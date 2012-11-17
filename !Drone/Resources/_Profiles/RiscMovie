@@ -1,0 +1,61 @@
+# Drone
+# Saved Sat,28 Aug 2004.21:50:03 by !ConfiX
+
+[Info]
+APPNAME:RiscMovie
+PURPOSE:Keep track of your movie collection
+AUTHOR:Bent Bracke
+LICENCE:Public Domain
+APPPAGE:http://www.arcsite.de/hp/bracke/programming/mtools.html
+HOMEPAGE:http://www.arcsite.de/hp/bracke/
+EMAIL:bbracke@web.de
+DATE:XXXX-XX-XX
+VERSION:X.XX
+
+[Misc]
+RELEASETARGET:<RiscMovie$Dir>.^
+WIMPSLOT:640
+DEBUGWIMPSLOT:1400
+NAME:!<DRONE_APPNAME>
+SPRITES:True
+SPRITESFILE:SingleHD
+
+[Obey]
+BOOT:True
+BOOTFILE:Default
+RUN:True
+RUNFILE:MinSlot
+TOOLBOX:True
+TOOLBOXFILE:Default
+DEBUG:False
+DEBUGFILE:Default
+HELP:True
+HELPFILE:Default
+CONFIGURE:True
+CONFIGUREFILE:Default
+
+[Language]
+UK:True
+UKFILE:Default
+GERMANY:True
+GERMANYFILE:Default
+
+[Code]
+CODE:True
+CODEFILE:Ada-RAsCaL
+
+[Scripts]
+RELEASE:True
+RELEASEFILE:Default
+COMPILE:True
+COMPILEFILE:AdaRelease
+IDE:False
+IDEFILE:Default
+CONFIX:True
+CONFIXFILE:Default
+BUGZ:True
+BUGZFILE:Default
+FRONTEND:False
+FRONTENDFILE:Default
+FRONTENDER:False
+FRONTENDERFILE:Default

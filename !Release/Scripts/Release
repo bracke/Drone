@@ -1,0 +1,320 @@
+| StrongEd$WrapWidth=256
+| StrongEd$Mode=Obey
+|
+
+do Set Release$Dir <Obey$Dir>.^
+<Release$Dir>.!Boot
+
+Set CCres$Dir <Release$Dir>.Tools.!CCRes
+
+Set HomePage$Dir <Boot$Dir>.^.Projekter.Hjemmeside.Target
+If "<Spr2Png$Dir>"="" Then Set Spr2Png$Dir <Boot$Dir>.^.Misc.Grafik.PNG.!Spr2Png
+
+Dir <Release$Dir>
+
+ECHO **************************
+ECHO ** Creating application **
+ECHO **************************
+ECHO
+ECHO Messages - Check
+<Release$Dir>.Tools.CheckMsgs -T -Q -f <Release$Dir>.Resources.UK.Messages -M <Release$Dir>.Resources.Germany.Messages
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check *****"
+
+<Release$Dir>.Tools.CheckMsgs -T -Q -f <Release$Dir>.Resources.Germany.Messages
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check *****"
+
+ECHO Done
+ECHO
+
+do ?leaf <Release$Dir>
+do Set ReleaseAppname <Leaf>
+
+| Remove pling
+if ReleaseAppname LEFT 1 = "!" then SetEval ReleaseAppname ReleaseAppname RIGHT (LEN ReleaseAppname - 1)
+
+do ECHO Release version of:         ***    <ReleaseAppname>    ***
+ECHO
+
+<Release$Dir>.Tools.GetVersion | Set ReleaseRelease
+
+ECHO
+do ECHO <Sys$Time>
+
+ECHO
+ECHO Creating target directory
+ECHO -------------------------
+
+do Set ReleaseTarget$Dir <Release$Dir>.^.<ReleaseRelease>
+CDir <ReleaseTarget$Dir>
+ECHO done!
+
+do spool <ReleaseTarget$Dir>.Log
+
+ECHO
+ECHO Creating target application
+ECHO ---------------------------
+
+do Set ReleaseTarget$Dir <ReleaseTarget$Dir>.!<ReleaseAppname>
+CDir <ReleaseTarget$Dir>
+ECHO done!
+
+ECHO Compile project with high optimisation
+ECHO --------------------------------------
+Run <Release$Dir>.Scripts.Compile
+ECHO done!
+
+ECHO
+ECHO Copying files
+ECHO -------------
+
+ECHO *** !Boot...
+x copy <Release$Dir>.!Boot <ReleaseTarget$Dir>.!Boot ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Run...
+copy <Release$Dir>.!Run-Release <ReleaseTarget$Dir>.!Run ~C~D~L~N~PQRS~TV
+ECHO Done!
+do <Release$Dir>.Tools.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.!Run
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on !Run *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on !Run *****"
+
+ECHO *** !Help...
+copy <Release$Dir>.!Help <ReleaseTarget$Dir>.!Help ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Configure...
+copy <Release$Dir>.!Configure <ReleaseTarget$Dir>.!Configure ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Toolbox...
+copy <Release$Dir>.!Toolbox <ReleaseTarget$Dir>.!Toolbox ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites...
+x copy <Release$Dir>.!Sprites <ReleaseTarget$Dir>.!Sprites ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites4...
+x copy <Release$Dir>.!Sprites4 <ReleaseTarget$Dir>.!Sprites4 ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites22...
+x copy <Release$Dir>.!Sprites22 <ReleaseTarget$Dir>.!Sprites22 ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites5...
+x copy <Release$Dir>.!Sprites5 <ReleaseTarget$Dir>.!Sprites5 ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Resources...
+copy <Release$Dir>.Resources <ReleaseTarget$Dir>.Resources ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+do <Release$Dir>.Tools.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.Bugz
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Resources.Bugz *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Resources.Bugz *****"
+
+do <Release$Dir>.Tools.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.UK.Res
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on UK.Res *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on UK.Res *****"
+
+do <Release$Dir>.Tools.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.Germany.Res
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Germany.Res *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Germany.Res *****"
+
+ECHO Creating UK manual
+ECHO ------------------
+| Prepare manual for update - UK
+CDir <Wimp$ScrapDir>.Release
+X Wipe <Wimp$ScrapDir>.Release.*
+do Copy <ReleaseTarget$Dir>.Resources.UK.<ReleaseAppname>.* <Wimp$ScrapDir>.Release.*
+
+| Update manual - UK
+do <Release$Dir>.Tools.UpdVersion -v <ReleaseRelease> <Wimp$ScrapDir>.Release.!Root
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Manual root (UK)*****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Manual root (UK)*****"
+
+| Cleanup after update - UK
+X Wipe <ReleaseTarget$Dir>.Resources.UK.<ReleaseAppname>
+StrongCreate <ReleaseTarget$Dir>.Resources.UK.<ReleaseAppname>
+Copy  <Wimp$ScrapDir>.Release.* <ReleaseTarget$Dir>.Resources.UK.<ReleaseAppname>.*
+X Wipe <Wimp$ScrapDir>.Release
+
+ECHO Creating German manual
+ECHO ----------------------
+| Prepare manual for update - Germany
+CDir <Wimp$ScrapDir>.Release
+X Wipe <Wimp$ScrapDir>.Release.*
+do Copy <ReleaseTarget$Dir>.Resources.Germany.<ReleaseAppname>.* <Wimp$ScrapDir>.Release.*
+
+| Update manual - Germany
+do <Release$Dir>.Tools.UpdVersion -v <ReleaseRelease> <Wimp$ScrapDir>.Release.!Root
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Manual root (Germany)*****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Manual root (Germany)*****"
+
+| Cleanup after update - Germany
+X Wipe <ReleaseTarget$Dir>.Resources.Germany.<ReleaseAppname>
+StrongCreate <ReleaseTarget$Dir>.Resources.Germany.<ReleaseAppname>
+Copy  <Wimp$ScrapDir>.Release.* <ReleaseTarget$Dir>.Resources.Germany.<ReleaseAppname>.*
+X Wipe <Wimp$ScrapDir>.Release
+ECHO Done!
+
+ECHO *** RunImage...
+x copy <Release$Dir>.RunImage <ReleaseTarget$Dir>.!RunImage ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !RunImage...
+x copy <Release$Dir>.!RunImage <ReleaseTarget$Dir>.!RunImage ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Libraries...
+x copy <Release$Dir>.adb <ReleaseTarget$Dir>.adb ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Libraries...
+x copy <Release$Dir>.ads <ReleaseTarget$Dir>.ads ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Libraries...
+x copy <Release$Dir>.adc <ReleaseTarget$Dir>.adc ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+do x Wipe <ReleaseTarget$Dir>.ads.cvs
+do x Wipe <ReleaseTarget$Dir>.adb.cvs
+
+ECHO
+ECHO Get library files
+ECHO -----------------
+<Release$Dir>.Tools.GetLibSrc -IRASCALlib: <Release$Dir>.ali <ReleaseTarget$Dir>
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during GetLibSrc *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during GetLibSrc *****"
+
+ECHO Done!
+
+ECHO
+ECHO Creating German text manual
+ECHO ---------------------------
+Seteval TargetHelp "<ReleaseTarget$Dir>.Resources.Germany." + "<ReleaseAppname>"
+do WimpTask <StrongHelp$Dir>.Utilities.!StHlp2Txt.!StHlp2Txt -man <TargetHelp>
+Copy <Wimp$ScrapDir>.HelpText <ReleaseTarget$Dir>.Resources.germany.TextManual
+ECHO done!
+ECHO
+
+ECHO Cleaning up German StrongHelp manual
+ECHO ------------------------------------
+<StrongHelp$Dir>.Utilities.CleanCopy <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating UK text manual
+ECHO -----------------------
+Seteval TargetHelp "<ReleaseTarget$Dir>.Resources.uk." + "<ReleaseAppname>"
+do WimpTask <StrongHelp$Dir>.Utilities.!StHlp2Txt.!StHlp2Txt -man <TargetHelp>
+Copy <Wimp$ScrapDir>.HelpText <ReleaseTarget$Dir>.Resources.uk.TextManual
+ECHO done!
+ECHO
+
+ECHO
+ECHO Cleaning up UK StrongHelp manual
+ECHO --------------------------------
+<StrongHelp$Dir>.Utilities.CleanCopy <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating UK HTML manual
+ECHO -----------------------
+do X Wipe <HomePage$Dir>.programming.manuals.<ReleaseAppname>.* ~CFR~V 
+Dir <ReleaseTarget$Dir>.Resources.uk
+do SHtoHTML -head <Release$Dir>.headerline <HomePage$Dir>.programming.manuals <ReleaseAppname>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating Zip file
+ECHO -----------------
+do <KeyStroke$Lib>.Lower <ReleaseAppname>
+do SetEval ArchiveName "<KS$Line>" + "-<ReleaseRelease>" + "/zip"
+dir <ReleaseTarget$Dir>.^
+
+|do zip -r <ArchiveName> !<ReleaseAppname>
+do minizip -9 -v -o <ArchiveName> !<ReleaseAppname>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Updating version info on homepage
+ECHO ---------------------------------
+do <HomePage$Dir>.^.Source.Code.NewVersion <ReleaseAppname> <HomePage$Dir>.^.Source.Lists.MPTools <ArchiveName> <ReleaseRelease>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Removing old file in homepage
+ECHO -----------------------------
+X ?leaf <OldArchive$File>
+do X wipe <HomePage$Dir>.files.<leaf> ~CF~RV
+ECHO done!
+ECHO
+
+ECHO
+ECHO Copying new file to homepage
+ECHO ----------------------------
+do x copy <ArchiveName> <HomePage$Dir>.files.<ArchiveName> ~A~C~DF~L~N~PQ~R~S~TV
+ECHO done!
+ECHO
+
+
+ECHO
+ECHO Variables used for release generation
+ECHO -------------------------------------
+do ECHO TargetHelp         : <TargetHelp>
+do ECHO ReleaseAppname     : <ReleaseAppname>                       
+do ECHO ReleaseTarget$Dir  : <ReleaseTarget$Dir>                    
+do ECHO ReleaseRelease     : <ReleaseRelease>                       
+do ECHO ArchiveName        : <ArchiveName>                          
+do ECHO Release$Dir        : <Release$Dir>                          
+do ECHO OldArchive$File    : <OldArchive$File>                      
+do ECHO HomePage$Dir       : <HomePage$Dir>                         
+do ECHO leaf               : <leaf>                                 
+
+ECHO
+do ECHO <Sys$Time>
+ECHO
+
+
+ECHO
+ECHO Cleaning up
+ECHO -----------
+
+unset <TargetHelp>
+unset <ReleaseAppname>
+unset <ReleaseTarget$Dir>
+unset <ReleaseRelease>
+unset <ArchiveName>
+unset <Release$Dir>
+unset <OldArchive$File>
+unset <HomePage$Dir>
+unset <leaf>
+unset <DRONE_Script$Success>
+ECHO done!
+ECHO
+
+ECHO
+ECHO ********************************************
+ECHO *** Release version created succesfully! ***
+ECHO ********************************************
+
+Spool

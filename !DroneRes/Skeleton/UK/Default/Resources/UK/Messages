@@ -1,0 +1,46 @@
+# StrongEd$Mode=Message
+_TaskName:<DRONE_APPNAME>
+VERS:X.XX (XX-XX-XX)
+# Obey file error messages
+DESCRIPTION:<DRONE_PURPOSE>
+RO:<DRONE_APPNAME> needs RISC OS 3 or later.
+TASKEXIST:You can only have one copy of <DRONE_APPNAME> running at once.
+NESTED:<DRONE_APPNAME> requires the Nested Window Manager. This can be obtained by downloading the Universal Boot sequence from http://acorn.riscos.com/
+MODCLIB:You need the SharedCLibrary to run <DRONE_APPNAME>. 
+MODTB:You need 'Toolbox' module (v1.71) to run <DRONE_APPNAME>.
+MODCM:You need the 'ColourMenu' module (v0.24) to run <DRONE_APPNAME>.
+MODCD:You need the 'ColourDBox' module (v0.23) to run <DRONE_APPNAME>.
+MODDCS:You need the 'DCS' module (v1.16) to run <DRONE_APPNAME>.
+MODFI:You need the 'FileInfo' module (v0.22) to run <DRONE_APPNAME>.
+MODFB:You need the 'FontDBox' module (v0.22) to run <DRONE_APPNAME>.
+MODFM:You need the 'FontMenu' module (v0.27) to run <DRONE_APPNAME>.
+MODIB:You need the 'IconBar' module (v1.22) to run <DRONE_APPNAME>.
+MODMU:You need the 'Menu' module (v0.40) to run <DRONE_APPNAME>.
+MODPT:You need the 'PrintDBox' module (v0.20) to run <DRONE_APPNAME>.
+MODPI:You need the 'ProgInfo' module (v0.20) to run <DRONE_APPNAME>.
+MODSAVE:You need the 'SaveAs' module (v0.22) to run <DRONE_APPNAME>.
+MODSC:You need the 'Scale' module (v0.19) to run <DRONE_APPNAME>.
+MODWD:You need the 'Window' module (v1.79) to run <DRONE_APPNAME>.
+MODTA:You need the 'ToolAction' module (v0.23) to run <DRONE_APPNAME>.
+MODTG:You need the 'TextGadgets' module (v0.49) to run <DRONE_APPNAME>.
+MODURI:You need the 'URI' module to run <DRONE_APPNAME>.
+MODTW:You need the taskwindow module to run <DRONE_APPNAME>.
+# Error messages
+CHOICES:Error reading choices. %0
+CONFIGURE:Error running !Configure. %0
+UNTRAPPED:Untrapped exception. %0
+CONFIX:ConfiX can not be found. Please make sure the filer has seen it before running <DRONE_APPNAME>.
+BUGZQUERY:Error answering a query from Bugz. %0
+BUGZCREATE:Error creating Bugz report. %0
+NOBUGZ:Please locate the Bugz application. %0
+TOOLBOXERROR:Error processing Toolbox Error. %0
+HOMEPAGE:Error viewing Homepage. %0
+SENDEMAIL:Error sending E-Mail. %0
+MQUIT:Error receiving 'Quit' Message. %0
+TQUIT:Error receiving Toolbox 'Quit' Message. %0
+VIEWMANUAL:Error opening Manual. %0
+VIEWIHELP:Error running starting interactive help. %0
+VIEWCHAPTER:Error opening chapter in manual. %0
+#
+UNTITLED:Untitled
+

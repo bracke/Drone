@@ -1,0 +1,61 @@
+# Drone
+# Saved Fri,05 Nov 2004.11:45:06 by !ConfiX
+
+[Info]
+APPNAME:Remember
+PURPOSE:Remember account information
+AUTHOR:Bent Bracke
+LICENCE:Public Domain
+APPPAGE:http://www.arcsite.de/hp/bracke/
+HOMEPAGE:http://www.arcsite.de/hp/bracke/
+EMAIL:bbracke@web.de
+DATE:XXXX-XX-XX
+VERSION:X.XX
+
+[Misc]
+RELEASETARGET:<Remember$Dir>.^
+WIMPSLOT:640
+DEBUGWIMPSLOT:1400
+NAME:!<DRONE_APPNAME>
+SPRITES:True
+SPRITESFILE:SingleHD
+
+[Obey]
+BOOT:True
+BOOTFILE:Default
+RUN:True
+RUNFILE:Default
+TOOLBOX:True
+TOOLBOXFILE:Default
+DEBUG:True
+DEBUGFILE:Default
+HELP:True
+HELPFILE:Default
+CONFIGURE:True
+CONFIGUREFILE:Default
+
+[Language]
+UK:True
+UKFILE:Default
+GERMANY:False
+GERMANYFILE:Default
+
+[Code]
+CODE:True
+CODEFILE:Ada-RAsCaL
+
+[Scripts]
+RELEASE:True
+RELEASEFILE:Default
+COMPILE:True
+COMPILEFILE:AdaRelease
+IDE:False
+IDEFILE:Default
+CONFIX:True
+CONFIXFILE:Default
+BUGZ:True
+BUGZFILE:Default
+FRONTEND:False
+FRONTENDFILE:Default
+FRONTENDER:False
+FRONTENDERFILE:Default

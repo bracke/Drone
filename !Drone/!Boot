@@ -1,0 +1,18 @@
+Run <Obey$Dir>.Resources.ResFind Drone
+|
+Set Drone$Help DroneRes:Drone
+Set Drone$Version "1.12"
+Set Drone$Web "http://www.arcsite.de/hp/bracke/"
+Set Drone$Title "Drone"
+Set Drone$Publisher "Bent Bracke"
+Set Drone$Description "Creates application skeletons."
+Run <Drone$Dir>.Resources.ReadToken DroneRes:Messages DESCRIPTION
+do Set Drone$Description <ReadToken$Value>
+|
+Set DroneSprites 2
+RMEnsure UtilityModule 5.00 Set DroneSprites 1
+RMEnsure UtilityModule 4.00 Set DroneSprites 0
+If <DroneSprites> = 2 Then Iconsprites <Drone$Dir>.!Sprites5
+If <DroneSprites> = 1 Then Iconsprites <Drone$Dir>.!Sprites4
+If <DroneSprites> = 0 Then Iconsprites <Drone$Dir>.!Sprites
+UnSet DroneSprites

@@ -1,0 +1,3 @@
+Dir <Release$Dir>
+wimpslot -min 4000K -max 4000K
+gnatmake -f RunImage -cargs -gnatp -mno-poke-function-name -mapcs-32 -O2  -LRASCALlib: -IRASCALlib: -mthrowback -largs -mstubs RASCALlib:flexlib-32.o RASCALlib:flexlibzm.o

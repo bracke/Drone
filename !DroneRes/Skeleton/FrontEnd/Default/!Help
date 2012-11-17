@@ -1,0 +1,34 @@
+===============
+=  <DRONE_APPNAME>  =
+===============
+
+<DRONE_APPNAME> is a command line program which <DRONE_PURPOSE>.
+It is supplied with a desktop frontend, but is also useable on its own.
+
+Copyright (C) <DRONE_AUTHOR>
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Contact
+=======
+
+Email:  mailto:<DRONE_EMAIL>
+Web:    <DRONE_APPPAGE>
+
+Frontend use
+============
+
+1.Double click on the !<DRONE_APPNAME> icon - this will place an icon on the iconbar.
+2.SELECT clicking on the iconbar icon will open a setup window.
+3.Fill in the information needed and SELECT click on 'Run'. Use the interactive
+  help to get information about what to fill in where.
+
+This will start the <DRONE_APPNAME> command line program and open a window showing the status.
+
+Command line use
+================
+
+Syntax: <DRONE_APPNAME> <source file> <target file>
+

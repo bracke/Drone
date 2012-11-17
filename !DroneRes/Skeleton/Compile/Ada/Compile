@@ -1,0 +1,3 @@
+Dir <<DRONE_APPNAME>$Dir>
+wimpslot -min 4000K -max 4000K
+gnatmake RunImage -cargs -mapcs-32 -LRASCALlib: -IRASCALlib: -mthrowback -largs -mstubs -lgnat_cc

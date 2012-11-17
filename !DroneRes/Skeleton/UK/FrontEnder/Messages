@@ -1,0 +1,8 @@
+# StrongEd$Mode=Message
+_TaskName:<DRONE_APPNAME>
+VERS:<DRONE_VERSION> (<DRONE_DATE>)
+# Obey file error messages
+RESERR:Message from <DRONE_APPNAME>
+MODTB:You need FrontEnder to run <DRONE_APPNAME>.
+#
+UNTITLED:Untitled

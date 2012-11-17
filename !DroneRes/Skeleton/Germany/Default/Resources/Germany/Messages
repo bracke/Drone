@@ -1,0 +1,45 @@
+# StrongEd$Mode=Message
+_TaskName:<DRONE_APPNAME>
+VERS:X.XX (XX-XX-XX)
+# Fehler Meldungen für die 'Obey' Dateien
+DESCRIPTION:<DRONE_PURPOSE>
+RO:<DRONE_APPNAME> benötigt RISC OS 3.
+NESTED:Der Windowmanager ist zu alt (< 3.80).
+MODCLIB:Das Modul 'SharedCLibrary' ist für Drone erforderlich.
+CONFIX:ConfiX konnte nicht gefunden werden.
+MODTB:Das Modul 'Toolbox' (V1.71) ist für <DRONE_APPNAME> erforderlich.
+MODWD:Das Modul 'Window' (V1.79) ist für <DRONE_APPNAME> erforderlich.
+MODIB:Das Modul 'IconBar' (V1.22) ist für <DRONE_APPNAME> erforderlich.
+MODMU:Das Modul 'Menu' (V0.40) ist für <DRONE_APPNAME> erforderlich.
+MODPI:Das Modul 'ProgInfo' (V0.20) ist für <DRONE_APPNAME> erforderlich.
+MODSC:Das Modul 'Scale' (V0.19) ist für <DRONE_APPNAME> erforderlich.
+MODSAVE:Das Modul 'SaveAs' (V0.22) ist für <DRONE_APPNAME> erforderlich.
+MODFI:Das Modul 'FileInfo' (V0.22) ist für <DRONE_APPNAME> erforderlich.
+MODTA:Das Modul 'ToolAction' (V0.23) ist für <DRONE_APPNAME> erforderlich.
+MODCD:Das Modul 'ColourDBox' (V0.23) ist für <DRONE_APPNAME> erforderlich.
+MODCM:Das Modul 'ColourMenu' (V0.24) ist für <DRONE_APPNAME> erforderlich.
+MODDCS:Das Modul 'DCS' (V1.16) ist für <DRONE_APPNAME> erforderlich.
+MODFB:Das Modul 'FontDBox' (V0.22) ist für <DRONE_APPNAME> erforderlich.
+MODFM:Das Modul 'FontMenu' (V0.27) ist für <DRONE_APPNAME> erforderlich.
+MODPT:Das Modul 'PrintDBox' (V0.20) ist für <DRONE_APPNAME> erforderlich.
+MODTG:Das Modul 'TextGadgets' (V0.49) ist für <DRONE_APPNAME> erforderlich.
+MODURI:Das Modul 'URI' ist für <DRONE_APPNAME> erforderlich.
+MODTW:Das Modul 'TaskWindow' ist für Drone erforderlich.
+# Fehler Meldungen
+UNTRAPPED:Unbekannter Fehler. %0
+CHOICES:Fehler beim lesen der Konfiguration. %0
+CONFIGURE:Fehler beim starten von !ConfiX. %0
+TASKEXIST:<DRONE_APPNAME> läuft schon.
+TOOLBOXERROR:Fehler beim bearbeiten eines Toolbox Fehler. %0
+BUGZQUERY:Fehler beim bearbeiten einer Anfrage von der Bugz Applikation. %0
+BUGZCREATE:Fehler beim Erstellen der Bugz Fehlermeldung. %0
+NOBUGZ:Die Bugz Applikation konnte nicht gefunden werden. %0
+HOMEPAGE:Fehler beim öffnen der Homepage. %0
+SENDEMAIL:Fehler beim verschicken der E-Mail. %0
+MQUIT:Fehler beim Empfang der 'Quit' Message. %0
+TQUIT:Fehler beim Empfang der Toolbox 'Quit' Message. %0
+VIEWMANUAL:Fehler beim öffnen des Handbuchs. %0
+VIEWIHELP:Fehler beim starten der interaktiven Hilfe. %0
+VIEWCHAPTER:Fehler beim öffnen eines Kapitels im Handbuch. %0
+#
+UNTITLED:Namenlos

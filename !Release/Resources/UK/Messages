@@ -1,0 +1,36 @@
+# StrongEd$Mode=Message
+_TaskName:Release
+VERS:x.xx (xx/xx/xxxx)
+# Obey file error messages
+RESERR:Message from Release
+MODTB:You need 'Toolbox' module to run Release.
+MODCM:You need the 'ColourMenu' module to run Release.
+MODCD:You need the 'ColourDBox' module to run Release.
+MODDCS:You need the 'DCS' module to run Release.
+MODFI:You need the 'FileInfo' module to run Release.
+MODFB:You need the 'FontDBox' module to run Release.
+MODFM:You need the 'FontMenu' module to run Release.
+MODIB:You need the 'IconBar' module to run Release.
+MODMU:You need the 'Menu' module to run Release.
+MODPT:You need the 'PrintDBox' module to run Release.
+MODPI:You need the 'ProgInfo' module to run Release.
+MODQT:You need the Quit module to run Release.
+MODSAVE:You need the 'SaveAs' module to run Release.
+MODSC:You need the 'Scale' module to run Release.
+MODWD:You need the 'Window' module to run Release.
+MODTA:You need the 'ToolAction' module to run Release.
+MODTG:You need the 'TextGadgets' module to run Release.
+MODURI:You need the 'URI' module to run Release.
+# Error messages
+EXISTS:There is already a application with that name. Please try again with a different name.
+UOPENMSG:Unable To Open Messages File.
+MSGCLOSED:Messages File Is Closed
+MSGNFOUND:Message (TAG) Not Found
+#
+err106:Error while creating bug report.
+err132:Error opening configuration.
+err133:Error viewing manual.
+err134:Error opening homepage.
+err135:Error opening email client.
+#
+UNTITLED:Untitled

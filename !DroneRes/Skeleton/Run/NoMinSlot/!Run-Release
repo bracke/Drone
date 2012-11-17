@@ -1,0 +1,27 @@
+Run <Obey$Dir>.!Boot
+Run <<DRONE_APPNAME>$Dir>.Resources.IsTask <DRONE_APPNAME>
+If <<DRONE_APPNAME>$Task> <> 0 Then Run <<DRONE_APPNAME>$Dir>.Resources.ReadToken <DRONE_APPNAME>Res:Messages TASKEXIST
+If <<DRONE_APPNAME>$Task> <> 0 Then ERROR 0 <ReadToken$Value>
+
+|
+RMEnsure UtilityModule 3.00 Run <<DRONE_APPNAME>$Dir>.Resources.ReadToken <DRONE_APPNAME>Res:Messages RO
+RMEnsure UtilityModule 3.00 ERROR 0 <ReadToken$Value>
+| 
+RMEnsure WindowManager 3.80 Run <<DRONE_APPNAME>$Dir>.Resources.ReadToken <DRONE_APPNAME>Res:Messages NESTED
+RMEnsure WindowManager 3.80 ERROR 0 <ReadToken$Value>
+|
+RMEnsure SharedCLibrary 0.01 System:modules.clib
+RMEnsure SharedCLibrary 0.01 Run <<DRONE_APPNAME>$Dir>.Resources.ReadToken <DRONE_APPNAME>Res:Messages MODCLIB
+RMEnsure SharedCLibrary 0.01 ERROR 0 <ReadToken$Value>
+|
+Run <<DRONE_APPNAME>$Dir>.!Toolbox
+|
+UnSet <DRONE_APPNAME>$Start_URI_Handler
+RMEnsure AcornURI 0.12 Set <DRONE_APPNAME>$Start_URI_Handler 1
+<<DRONE_APPNAME>$Dir>.Resources.IgnoreErr RMEnsure AcornURI 0.12 RMLoad System:Modules.Network.URI
+RMEnsure AcornURI 0.12 UnSet <DRONE_APPNAME>$Start_URI_Handler
+RMEnsure AcornURI 0.12 Run <<DRONE_APPNAME>$Dir>.Resources.ReadToken <DRONE_APPNAME>Res:Messages MODURI
+RMEnsure AcornURI 0.12 ERROR 0 <ReadToken$Value>
+|
+Wimpslot -min <DRONE_WIMPSLOT>K -max <DRONE_WIMPSLOT>K
+Run <<DRONE_APPNAME>$Dir>.!RunImage

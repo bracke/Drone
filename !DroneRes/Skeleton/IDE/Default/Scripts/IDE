@@ -1,0 +1,12 @@
+XPin <<DRONE_APPNAME>$Dir>.Scripts.RemCaret 50 900
+
+XPin <<DRONE_APPNAME>$Dir> 50 750
+XPin <<DRONE_APPNAME>$Dir>.Resources 150 750
+XPin <<DRONE_APPNAME>$Dir>.Resources.UK 250 750
+XPin <<DRONE_APPNAME>$Dir>.Resources.Germany 350 750
+
+XPin <<DRONE_APPNAME>$Dir>.Debug 50 600
+XPin <<DRONE_APPNAME>$Dir>.Run 150 600
+
+XPin Choices:<DRONE_APPNAME> 50 450
+XPin <Wimp$ScrapDir> 150 450

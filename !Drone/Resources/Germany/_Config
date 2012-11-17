@@ -1,0 +1,406 @@
+| Drone Configure definitions
+
+Title = Drone
+Width = 900
+CheckVersion = 0.46
+File = <Choices$Write>.Drone.Choices
+Separator = :
+Remark = #
+Boolean = 2
+
+[Info]
+
+Icon = help1
+Text = Program Info
+Width = 300
+
+{
+ Name = APPNAME
+ Text = Name
+ Type = String
+ Help = The name of the application
+}
+{
+ Name = PURPOSE
+ Text = Purpose
+ Type = String
+ Help = The purpose of the new application
+}
+{
+ Name = AUTHOR
+ Text = Author
+ Type = String
+ Help = Your name
+}
+{
+ Name = LICENCE
+ Text = Licence
+ Type = String
+ Default = Public Domain
+ Help = The Licence of the new application
+}
+{
+ Name = APPPAGE
+ Text = Application Homepage
+ Type = String
+ Help = The homepage of the new application
+}
+{
+ Name = HOMEPAGE
+ Text = Your Homepage
+ Type = String
+ Help = Your homepage
+}
+{
+ Name = EMAIL
+ Text = Email
+ Type = String
+ Help = Your email address for support
+}
+{
+ Name = DATE
+ Text = Date
+ Type = String
+ Default = XXXX-XX-XX
+ Help = The release date.
+}
+{
+ Name = VERSION
+ Text = Version
+ Type = String
+ Default = X.XX
+ Help = The version of the application
+}
+
+[Misc]
+
+Icon = misc
+Text = Miscallaneous
+Width = 300
+
+{
+ Name = RELEASETARGET
+ Text = Release Dir.
+ Type = String
+ Default = <<DRONE_APPNAME>$Dir>.^
+ Help = Where Releases are saved
+}
+{
+ Name = WIMPSLOT
+ Text = WimpSlot (K)
+ Type = String
+ Default = 640
+ Help = The size of the WimpSlot.
+}
+{
+ Name = DEBUGWIMPSLOT
+ Text = Debug WimpSlot (K)
+ Type = String
+ Default = 1400
+ Help = The size of the debug WimpSlot.
+}
+
+{
+ Name = NAME
+ Text = Short Name
+ Type = String
+ Default = <DRONE_APPNAME>
+ Help = Short name (<=12) for sprites 
+}
+{
+Type = Ruler
+Height = 20
+}
+{
+ Name = SPRITES
+ Text = Sprites
+ Type = Option
+ Default = Off
+ Help = Creates !Sprites files
+};
+{
+ Name = SPRITESFILE
+ Type = Menu
+ Menu = #Sprite files;directory;<DroneResources$Dir>.Skeleton.Sprites
+ Default = Default
+ Enable = SPRITES,1
+}
+[Obey]
+
+Icon = obey
+Text = Obey files
+Width = 300
+
+{
+ Name = BOOT
+ Text = Boot
+ Type = Option
+ Default = Off
+ Help = Create a !Boot obey file
+};
+{
+ Name = BOOTFILE
+ Type = Menu
+ Menu = #Boot files;directory;<DroneResources$Dir>.Skeleton.Boot
+ Default = Default
+ Enable = BOOT,1
+}
+{
+ Name = RUN
+ Text = Run
+ Type = Option
+ Default = On
+ Help = Create a !Run obey file
+};
+{
+ Name = RUNFILE
+ Type = Menu
+ Menu = #Run files;directory;<DroneResources$Dir>.Skeleton.Run
+ Default = Default
+ Enable = RUN,1
+}
+{
+ Name = TOOLBOX
+ Text = Toolbox
+ Type = Option
+ Default = On
+ Help = Create a !Toolbox obey file to ensure toolbox modules.
+};
+{
+ Name = TOOLBOXFILE
+ Type = Menu
+ Menu = #Run files;directory;<DroneResources$Dir>.Skeleton.Toolbox
+ Default = Default
+ Enable = TOOLBOX,1
+}
+
+{
+ Name = DEBUG
+ Text = Debug
+ Type = Option
+ Default = On
+ Help = Create a !Debug obey file
+};
+{
+ Name = DEBUGFILE
+ Type = Menu
+ Menu = #Debug files;directory;<DroneResources$Dir>.Skeleton.Debug
+ Default = Default
+ Enable = DEBUG,1
+}
+
+{
+Type = Ruler
+Height = 20
+}
+{
+ Name = HELP
+ Text = Help
+ Type = Option
+ Default = On
+ Help = Create a !Help obey file
+};
+{
+ Name = HELPFILE
+ Type = Menu
+ Menu = #Help files;directory;<DroneResources$Dir>.Skeleton.Help
+ Default = Default
+ Enable = HELP,1
+}
+{
+ Name = CONFIGURE
+ Text = Configure
+ Type = Option
+ Default = On
+ Help = Create a !Configure obey file
+};
+{
+ Name = CONFIGUREFILE
+ Type = Menu
+ Menu = #Configure files;directory;<DroneResources$Dir>.Skeleton.Configure
+ Default = Default
+ Enable = CONFIGURE,1
+}
+
+[Language]
+
+Icon = dir
+Text = Languages
+Width = 300
+
+{
+ Name = UK
+ Text = UK
+ Type = Option
+ Default = On
+ Help = Create UK resource files
+};
+{
+ Name = UKFILE
+ Type = Menu
+ Menu = #UK files;directory;<DroneResources$Dir>.Skeleton.UK
+ Default = Default
+ Enable = UK,1
+}
+
+
+{
+ Name = GERMANY
+ Text = Germany
+ Type = Option
+ Default = On
+ Help = Create German resource files
+};
+{
+ Name = GERMANYFILE
+ Type = Menu
+ Menu = #German files;directory;<DroneResources$Dir>.Skeleton.Germany
+ Default = Default
+ Enable = GERMANY,1
+}
+
+{
+ Name = DENMARK
+ Text = Denmark
+ Type = Option
+ Default = On
+ Help = Create danish resource files
+};
+{
+ Name = DENMARKFILE
+ Type = Menu
+ Menu = #Danish files;directory;<DroneResources$Dir>.Skeleton.Denmark
+ Default = Default
+ Enable = DENMARK,1
+}
+
+[Code]
+
+Icon = code
+Text = Code
+Width = 300
+
+{
+ Name = CODE
+ Text = Code
+ Type = Option
+ Default = On
+ Help = Create a Code Script
+};
+{
+ Name = CODEFILE
+ Type = Menu
+ Menu = #Code;Directory;<DroneResources$Dir>.Skeleton.Code
+ Default = Ada-RAsCaL
+ Enable = CODE,1
+}
+
+[Scripts]
+
+Icon = scripts
+Text = Scripts
+Width = 300
+
+{
+ Name = RELEASE
+ Text = Release
+ Type = Option
+ Default = On
+ Help = Create a release Script
+};
+{
+ Name = RELEASEFILE
+ Type = Menu
+ Menu = #Release scripts;directory;<DroneResources$Dir>.Skeleton.Release
+ Default = Default
+ Enable = RELEASE,1
+}
+{
+ Name = COMPILE
+ Text = Compile
+ Type = Option
+ Default = On
+ Help = Create a compile Script
+};
+{
+ Name = COMPILEFILE
+ Type = Menu
+ Menu = #Compile scripts;directory;<DroneResources$Dir>.Skeleton.Compile
+ Default = Ada
+ Enable = COMPILE,1
+}
+
+{
+ Name = IDE
+ Text = IDE
+ Type = Option
+ Default = On
+ Help = Create a IDE script
+};
+{
+ Name = IDEFILE
+ Type = Menu
+ Menu = #IDE scripts;directory;<DroneResources$Dir>.Skeleton.IDE
+ Default = Default
+ Enable = IDE,1
+}
+{
+Type = Ruler
+Height = 20
+}
+{
+ Name = CONFIX
+ Text = ConfiX file
+ Type = Option
+ Default = On
+ Help = ConfiX configuration file
+};
+{
+ Name = CONFIXFILE
+ Type = Menu
+ Menu = #ConfiX files;directory;<DroneResources$Dir>.Skeleton.ConfiX
+ Default = Default
+ Enable = CONFIX,1
+}
+{
+ Name = BUGZ
+ Text = Bugz file
+ Type = Option
+ Default = On
+ Help = Bugz configuration file
+};
+{
+ Name = BUGZFILE
+ Type = Menu
+ Menu = #Bugz files;directory;<DroneResources$Dir>.Skeleton.Bugz
+ Default = Default
+ Enable = Bugz,1
+}
+{
+ Name = FRONTEND
+ Text = FrontEnd script
+ Type = Option
+ Default = On
+ Help = FrontEnd configuration file
+};
+{
+ Name = FRONTENDFILE
+ Type = Menu
+ Menu = #FrontEnd Scripts;Directory;<DroneResources$Dir>.Skeleton.FrontEnd
+ Default = Default
+ Enable = FRONTEND,1
+}
+{
+ Name = FRONTENDER
+ Text = FrontEnder script
+ Type = Option
+ Default = On
+ Help = FrontEnder configuration file
+};
+{
+ Name = FRONTENDERFILE
+ Type = Menu
+ Menu = #FrontEnder Scripts;directory;<DroneResources$Dir>.Skeleton.FrontEnder
+ Default = Default
+ Enable = FRONTENDER,1
+}

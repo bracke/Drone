@@ -1,0 +1,23 @@
+| <DRONE_APPNAME> Configure definitions
+
+Title = <DRONE_APPNAME>
+Width = 900
+Height = 320
+CheckVersion = 0.46
+File = <Choices$Write>.<DRONE_APPNAME>.Choices
+Separator = :
+Remark = #
+Boolean = 2
+
+[Main]
+
+Icon = Window
+Text = Main
+Width = 220
+
+{
+ Name = Dummy
+ Text = Dummy
+ Type = String
+ Help = Help for dummy
+}

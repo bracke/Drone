@@ -1,0 +1,13 @@
+Set Dummy$Path <Obey$Dir>.Resources.
+Run Dummy:ResFind Release
+Unset Dummy$Path
+|
+Set DummySprites 2
+RMEnsure UtilityModule 5.00 Set DummySprites 1
+RMEnsure UtilityModule 4.00 Set DummySprites 0
+If <DummySprites> = 2 Then Iconsprites <Release$Dir>.!Sprites5
+If <DummySprites> = 1 Then Iconsprites <Release$Dir>.!Sprites4
+If <DummySprites> = 0 Then Iconsprites <Release$Dir>.!Sprites
+UnSet DummySprites
+|
+if "<StrongHelp$Dir>" = "" then Filer_Run ReleaseRes:TextManual else Filer_Run ReleaseRes:Release

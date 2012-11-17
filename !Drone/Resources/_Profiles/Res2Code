@@ -1,0 +1,65 @@
+# Drone
+# Saved Sat,03 Jan 2004.19:52:12 by !ConfiX
+
+[Info]
+APPNAME:Res2Code
+PURPOSE:Create handler and autocreation code
+AUTHOR:Bent Bracke
+LICENCE:Public Domain
+APPPAGE:http://www.arcsite.de/hp/bracke/programming/mptools.html#res2code
+HOMEPAGE:http://www.arcsite.de/hp/bracke/
+EMAIL:bbracke@web.de
+DATE:24/11/2003
+VERSION:1.00
+
+[Misc]
+RELEASETARGET:<Res2Code$Dir>.^
+WIMPSLOT:640
+DEBUGWIMPSLOT:1400
+NAME:!<DRONE_APPNAME>
+SPRITES:True
+SPRITESFILE:Default
+
+[Obey]
+BOOT:True
+BOOTFILE:Default
+RUN:True
+RUNFILE:Default
+TOOLBOX:True
+TOOLBOXFILE:Default
+DEBUG:True
+DEBUGFILE:Default
+HELP:True
+HELPFILE:Default
+CONFIGURE:True
+CONFIGUREFILE:Default
+
+[Language]
+UK:True
+UKFILE:Default
+GERMANY:True
+GERMANYFILE:Default
+
+[Code]
+CODE:True
+CODEFILE:Ada-RAsCaL
+
+[Scripts]
+RELEASE:True
+RELEASEFILE:Default
+COMPILE:True
+COMPILEFILE:AdaRelease
+IDE:True
+IDEFILE:Default
+CONFIX:True
+CONFIXFILE:Default
+BUGZ:True
+BUGZFILE:Default
+FRONTEND:False
+FRONTENDFILE:Default
+FRONTENDER:False
+FRONTENDERFILE:Default
+
+[Tools]
+TOOLS:True
+TOOLSFILE:All

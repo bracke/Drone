@@ -1,0 +1,22 @@
+# StrongEd$Mode = FrontEnder
+# Frontender script for <DRONE_APPNAME>
+# Script written by <DRONE_AUTHOR> (mailto:<DRONE_EMAIL>)
+# <DRONE_APPPAGE>
+
+child_info
+{
+  name:     <DRONE_APPNAME> Frontend
+  purpose:  <DRONE_PURPOSE>
+  version:  <DRONE_VERSION> (<DRONE_DATE>)
+  author:   <DRONE_AUTHOR>
+  command:  echo dummy command
+  wimpslot: <DRONE_WIMPSLOT>
+  postexe:    
+}
+
+Main_window
+{                      
+  icon: writeable "Dummy:" "" "" 200 502 below
+  icon: option "Dummy" off "-D
+  icon: action "" "control" "" right 
+}

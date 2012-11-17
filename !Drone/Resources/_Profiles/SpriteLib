@@ -1,0 +1,65 @@
+# Drone
+# Saved Mon,05 Jan 2004.15:52:12 by !ConfiX
+
+[Info]
+APPNAME:SpriteLib
+PURPOSE:Make it easier to compare sprites
+AUTHOR:Bent Bracke
+LICENCE:Public Domain
+APPPAGE:http://www.arcsite.de/hp/bracke/programming/mtools.html#spritelib
+HOMEPAGE:http://www.arcsite.de/hp/bracke/
+EMAIL:bbracke@web.de
+DATE:05/01/2004
+VERSION:2.05
+
+[Misc]
+RELEASETARGET:<SpriteLibRes$Dir>.^
+WIMPSLOT:640
+DEBUGWIMPSLOT:1400
+NAME:!<DRONE_APPNAME>
+SPRITES:True
+SPRITESFILE:Default
+
+[Obey]
+BOOT:True
+BOOTFILE:Default
+RUN:True
+RUNFILE:Default
+TOOLBOX:True
+TOOLBOXFILE:Default
+DEBUG:True
+DEBUGFILE:Default
+HELP:True
+HELPFILE:Default
+CONFIGURE:False
+CONFIGUREFILE:Default
+
+[Language]
+UK:True
+UKFILE:Default
+GERMANY:True
+GERMANYFILE:Default
+
+[Code]
+CODE:True
+CODEFILE:Ada-RAsCaL
+
+[Scripts]
+RELEASE:True
+RELEASEFILE:Default
+COMPILE:True
+COMPILEFILE:AdaRelease
+IDE:True
+IDEFILE:Default
+CONFIX:False
+CONFIXFILE:Default
+BUGZ:True
+BUGZFILE:Default
+FRONTEND:False
+FRONTENDFILE:Default
+FRONTENDER:False
+FRONTENDERFILE:Default
+
+[Tools]
+TOOLS:True
+TOOLSFILE:All

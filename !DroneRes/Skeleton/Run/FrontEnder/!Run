@@ -1,0 +1,8 @@
+Set Dummy$Path <Obey$Dir>.Resources.
+Run Dummy:ResFind <DRONE_APPNAME>
+Unset Dummy$Path
+|
+<<DRONE_APPNAME>$Dir>.IconSprite
+|
+if "<frontender$dir>" = "" THEN Run Dummy:ResError <DRONE_APPNAME> FEER
+run <frontender$dir>.!Run <<DRONE_APPNAME>$dir>.Script

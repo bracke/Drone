@@ -1,0 +1,61 @@
+# Drone
+# Saved Mon,23 Aug 2004.21:51:22 by !ConfiX
+
+[Info]
+APPNAME:SearchBar
+PURPOSE:Easy access to internet searchpages
+AUTHOR:Bent Bracke
+LICENCE:GNU Library General Public License
+APPPAGE:http://www.arcsite.de/hp/bracke/programming/mtools.html
+HOMEPAGE:http://www.arcsite.de/hp/bracke/
+EMAIL:bbracke@web.de
+DATE:XXXX-XX-XX
+VERSION:X.XX
+
+[Misc]
+RELEASETARGET:<SearchBar$Dir>.^
+WIMPSLOT:640
+DEBUGWIMPSLOT:1400
+NAME:!<DRONE_APPNAME>
+SPRITES:True
+SPRITESFILE:SingleHD
+
+[Obey]
+BOOT:True
+BOOTFILE:Default
+RUN:True
+RUNFILE:Default
+TOOLBOX:False
+TOOLBOXFILE:Default
+DEBUG:False
+DEBUGFILE:Default
+HELP:False
+HELPFILE:Default
+CONFIGURE:False
+CONFIGUREFILE:Default
+
+[Language]
+UK:True
+UKFILE:Default
+GERMANY:False
+GERMANYFILE:Default
+
+[Code]
+CODE:True
+CODEFILE:BASToolLib
+
+[Scripts]
+RELEASE:True
+RELEASEFILE:Default
+COMPILE:False
+COMPILEFILE:AdaRelease
+IDE:False
+IDEFILE:Default
+CONFIX:True
+CONFIXFILE:Default
+BUGZ:True
+BUGZFILE:Default
+FRONTEND:False
+FRONTENDFILE:Default
+FRONTENDER:False
+FRONTENDERFILE:Default

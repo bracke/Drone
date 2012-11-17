@@ -1,0 +1,32 @@
+RMENSURE Toolbox     1.71  RMLOAD System:modules.toolbox.toolbox
+RMENSURE Toolbox     1.71  Run Dummy:ResError <DRONE_APPNAME> MODTB
+RMENSURE Window      1.79  RMLOAD System:modules.toolbox.window
+RMENSURE Window      1.79  Run Dummy:ResError <DRONE_APPNAME> MODWD
+RMENSURE IconBar     1.22  RMLOAD System:modules.toolbox.IconBar
+RMENSURE IconBar     1.22  Run Dummy:ResError <DRONE_APPNAME> MODIB
+RMENSURE Menu        0.40  RMLOAD System:modules.toolbox.menu
+RMENSURE Menu        0.40  Run Dummy:ResError <DRONE_APPNAME> MODMU
+RMENSURE ProgInfo    0.20  RMLOAD System:modules.toolbox.proginfo
+RMENSURE Proginfo    0.20  Run Dummy:ResError <DRONE_APPNAME> MODPI
+RMENSURE Scale       0.19  RMLOAD System:modules.toolbox.Scale
+RMENSURE Scale       0.19  Run Dummy:ResError <DRONE_APPNAME> MODSC
+RMENSURE SaveAs      0.22  RMLOAD System:modules.toolbox.SaveAs
+RMENSURE SaveAs      0.22  Run Dummy:ResError <DRONE_APPNAME> MODSAVE
+RMENSURE FileInfo    0.22  RMLOAD System:modules.toolbox.FileInfo
+RMENSURE FileInfo    0.22  Run Dummy:ResError <DRONE_APPNAME> MODFI
+RMENSURE ToolAction  0.23  RMLOAD System:modules.toolbox.ToolAction
+RMENSURE ToolAction  0.23  Run Dummy:ResError <DRONE_APPNAME> MODTA
+RMENSURE ColourDBox  0.23  RMLOAD System:modules.toolbox.ColourDBox
+RMENSURE ColourDBox  0.23  Run Dummy:ResError <DRONE_APPNAME> MODCD
+RMENSURE ColourMenu  0.24  RMLOAD System:modules.toolbox.ColourMenu
+RMENSURE ColourMenu  0.24  Run Dummy:ResError <DRONE_APPNAME> MODCM
+RMENSURE DCS         1.16  RMLOAD System:modules.toolbox.DCS_Quit
+RMENSURE DCS         1.16  Run Dummy:ResError <DRONE_APPNAME> MODDCS
+RMENSURE FontDBox    0.22  RMLOAD System:modules.toolbox.FontDBox
+RMENSURE FontDBox    0.22  Run Dummy:ResError <DRONE_APPNAME> MODFB
+RMENSURE FontMenu    0.27  RMLOAD System:modules.toolbox.FontMenu
+RMENSURE FontMenu    0.27  Run Dummy:ResError <DRONE_APPNAME> MODFM
+RMENSURE PrintDBox   0.20  RMLOAD System:modules.toolbox.PrintDBox
+RMENSURE PrintDBox   0.20  Run Dummy:ResError <DRONE_APPNAME> MODPT
+RMENSURE TextGadgets 0.49  RMLOAD System:modules.toolbox.TextGadget
+RMENSURE TextGadgets 0.49  Run Dummy:ResError <DRONE_APPNAME> MODTG

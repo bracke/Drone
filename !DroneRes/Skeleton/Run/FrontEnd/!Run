@@ -1,0 +1,19 @@
+Set Dummy$Path <Obey$Dir>.Resources.
+Run Dummy:ResFind <DRONE_APPNAME>
+Unset Dummy$Path
+|
+RMENSURE FPEmulator     0.00  RMLOAD System:modules.FPEmulator.FPEmulator
+RMENSURE FPEmulator     0.00  Run Dummy:ResError <DRONE_APPNAME> MODFPE
+RMENSURE SharedCLibrary 0.00  RMLOAD System:modules.clib
+RMENSURE SharedCLibrary 0.00  Run Dummy:ResError <DRONE_APPNAME> MODCLIB
+RMENSURE FrontEnd       0.00  RMLOAD System:modules.FrontEnd
+RMENSURE FrontEnd       0.00  Run Dummy:ResError <DRONE_APPNAME> MODFE
+RMENSURE TaskWindow     0.00  RMLOAD System:modules.task
+RMENSURE TaskWindow     0.00  Run Dummy:ResError <DRONE_APPNAME> MODTW
+RMENSURE DDEUtils       0.00  RMLOAD System:modules.ddeutils
+RMENSURE DDEUtils       0.00  Run Dummy:ResError <DRONE_APPNAME> MODDDE
+|
+<<DRONE_APPNAME>$Dir>.IconSprite
+|
+Wimpslot -min <DRONE_WIMPSLOT>K -max <DRONE_WIMPSLOT>K
+FrontEnd_Start -app <DRONE_APPNAME> -desc <<DRONE_APPNAME>$Dir>.desc

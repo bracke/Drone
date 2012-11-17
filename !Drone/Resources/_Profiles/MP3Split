@@ -1,0 +1,61 @@
+# Drone
+# Saved Sat,21 Aug 2004.19:12:14 by !ConfiX
+
+[Info]
+APPNAME:MP3Split
+PURPOSE:Split MP3 and Ogg files without decoding
+AUTHOR:Backend: Matteo Trotta, Frontend: Bent Bracke
+LICENCE:GNU Library General Public License
+APPPAGE:http://www.arcsite.de/hp/bracke/programming/mtools.html
+HOMEPAGE:http://www.arcsite.de/hp/bracke/
+EMAIL:bbracke@web.de
+DATE:XXXX-XX-XX
+VERSION:X.XX
+
+[Misc]
+RELEASETARGET:<MP3Split$Dir>.^
+WIMPSLOT:640
+DEBUGWIMPSLOT:1400
+NAME:!<DRONE_APPNAME>
+SPRITES:True
+SPRITESFILE:Default
+
+[Obey]
+BOOT:True
+BOOTFILE:Default
+RUN:True
+RUNFILE:Default
+TOOLBOX:False
+TOOLBOXFILE:Default
+DEBUG:False
+DEBUGFILE:Default
+HELP:False
+HELPFILE:Default
+CONFIGURE:False
+CONFIGUREFILE:Default
+
+[Language]
+UK:False
+UKFILE:Default
+GERMANY:False
+GERMANYFILE:Default
+
+[Code]
+CODE:False
+CODEFILE:Ada-RAsCaL
+
+[Scripts]
+RELEASE:True
+RELEASEFILE:FrontEnd
+COMPILE:False
+COMPILEFILE:AdaRelease
+IDE:False
+IDEFILE:Default
+CONFIX:False
+CONFIXFILE:Default
+BUGZ:False
+BUGZFILE:Default
+FRONTEND:True
+FRONTENDFILE:Default
+FRONTENDER:False
+FRONTENDERFILE:Default

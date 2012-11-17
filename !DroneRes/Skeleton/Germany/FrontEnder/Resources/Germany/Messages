@@ -1,0 +1,8 @@
+# StrongEd$Mode=Message
+_TaskName:<DRONE_APPNAME>
+VERS:<DRONE_VERSION> (<DRONE_DATE>)
+# Fehler Meldungen für die 'Obey' Dateien
+RESERR:Meldung von <DRONE_APPNAME>
+FEER:FrontEnder ist für <DRONE_APPNAME> erforderlich.
+#
+UNTITLED:Namenlos

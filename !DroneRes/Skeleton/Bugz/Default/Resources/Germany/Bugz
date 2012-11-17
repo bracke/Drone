@@ -1,0 +1,77 @@
+# This is a Bugz description file
+[*Title]
+<DRONE_APPNAME>
+
+[*Info]
+Program: <DRONE_APPNAME>
+Distribution: Ohne Einschränkung
+Version: <DRONE_VERSION>
+Release: Volles Öffentliches Release
+
+[*Mail]
+<DRONE_EMAIL>
+
+[*Cat]
+
+
+[*Modules]
+AcornURI
+WindowManager
+MessageTrans
+Toolbox
+Window
+IconBar
+Menu
+ProgInfo
+Scale
+SaveAs
+FileInfo
+ToolAction
+ColourDBox
+ColourMenu
+DCS
+FontDBox
+FontMenu
+PrintDBox
+TextGadgets
+StrongHelp
+
+[*Show]
+<DRONE_APPNAME>$Dir
+<DRONE_APPNAME>Res$Path
+Choices$Dir
+Choices$Path
+Choices$Write
+Wimp$ScrapDir
+StrongHelp$Dir
+ConfiX$Dir
+<DRONE_APPNAME>$Help
+<DRONE_APPNAME>$Version
+<DRONE_APPNAME>$Web
+<DRONE_APPNAME>$Title
+<DRONE_APPNAME>$Publisher
+<DRONE_APPNAME>$Description
+
+[*Cat]
+Bitte den Fehler und die Umstände so genau wie möglich beschreiben.
+
+[Symbolleisten Menü]
+Bitte angeben in welchem Untermenü der Fehler aufgetreten ist und falls
+eine Menüpunkt gewählt wurde dann bitte auch angeben ob das per Maus
+oder Tastaturkürzel geschah.
+
+
+[Konfiguration]
+Für die Konfiguration wird die Applikation ConfiX verwendet. Falls damit
+Probleme auftreten dann lesen Sie bitte das ConfiX Handbuch bevor Sie
+eine Fehlermeldung schreiben. Bitte beschreiben Sie in der Fehlermeldung
+wie Sie das Konfigurationsfenster geöffnet haben und welche Probleme
+auftraten.
+
+[Fehlermeldung - Bugz]
+Bei Problemen mit dem erstellen von Fehlermeldungen beachten Sie bitte
+das das Problem auch bei der Bugz Applikation liegen kann.
+
+[Handbuch]
+Bitte jeden Fehler im Handbuch melden - auch sprachliche und
+grammatische Fehler.

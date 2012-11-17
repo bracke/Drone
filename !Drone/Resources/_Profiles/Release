@@ -1,0 +1,65 @@
+# Drone
+# Saved Sat,10 Jul 2004.14:23:57 by !ConfiX
+
+[Info]
+APPNAME:Release
+PURPOSE:Release scripts
+AUTHOR:Bent Bracke
+LICENCE:Public Domain
+APPPAGE:http://www.arcsite.de/hp/bracke/programming/mtools.html
+HOMEPAGE:http://www.arcsite.de/hp/bracke/
+EMAIL:bbracke@web.de
+DATE:xx/xx/xxxx
+VERSION:x.xx
+
+[Misc]
+RELEASETARGET:<Release$Dir>.^
+WIMPSLOT:640
+DEBUGWIMPSLOT:1400
+NAME:!<DRONE_APPNAME>
+SPRITES:True
+SPRITESFILE:Default
+
+[Obey]
+BOOT:True
+BOOTFILE:Default
+RUN:False
+RUNFILE:Default
+TOOLBOX:False
+TOOLBOXFILE:Default
+DEBUG:False
+DEBUGFILE:Default
+HELP:True
+HELPFILE:Default
+CONFIGURE:False
+CONFIGUREFILE:Default
+
+[Language]
+UK:True
+UKFILE:Default
+GERMANY:True
+GERMANYFILE:Default
+
+[Code]
+CODE:False
+CODEFILE:Ada-RAsCaL
+
+[Scripts]
+RELEASE:True
+RELEASEFILE:Default
+COMPILE:False
+COMPILEFILE:AdaRelease
+IDE:False
+IDEFILE:Default
+CONFIX:False
+CONFIXFILE:Default
+BUGZ:False
+BUGZFILE:Default
+FRONTEND:False
+FRONTENDFILE:Default
+FRONTENDER:False
+FRONTENDERFILE:Default
+
+[Tools]
+TOOLS:False
+TOOLSFILE:All

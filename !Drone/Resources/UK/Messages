@@ -1,0 +1,52 @@
+# StrongEd$Mode=Message
+_TaskName:Drone
+VERS:1.12 (2005-02-20)
+# Obey file error messages
+DESCRIPTION:Creates application skeletons.
+CONFIX:Unable to locate ConfiX.
+NORES:Unable to locate DroneRes.
+RO:Drone needs RISC OS 3 or later.
+MODTW:You need the taskwindow module to run Drone.
+TASKEXIST:You can only have one copy of Drone running at once.
+NESTED:Drone requires the Nested Window Manager. This can be obtained by downloading the Universal Boot sequence from http://acorn.riscos.com/
+MODCLIB:You need the SharedCLibrary to run Drone.
+NOCCRES:Unable to locate CCRes.
+MODTB:You need 'Toolbox' module (v1.71) to run Drone.
+MODCM:You need the 'ColourMenu' module (v0.24) to run Drone.
+MODCD:You need the 'ColourDBox' module (v0.23) to run Drone.
+MODDCS:You need the 'DCS' module (v1.16) to run Drone.
+MODFI:You need the 'FileInfo' module (v0.22) to run Drone.
+MODFB:You need the 'FontDBox' module (v0.22) to run Drone.
+MODFM:You need the 'FontMenu' module (v0.27) to run Drone.
+MODIB:You need the 'IconBar' module (v1.22) to run Drone.
+MODMU:You need the 'Menu' module (v0.40) to run Drone.
+MODPT:You need the 'PrintDBox' module (v0.20) to run Drone.
+MODPI:You need the 'ProgInfo' module (v0.20) to run Drone.
+MODSAVE:You need the 'SaveAs' module (v0.22) to run Drone.
+MODSC:You need the 'Scale' module (v0.19) to run Drone.
+MODWD:You need the 'Window' module (v1.79) to run Drone.
+MODTA:You need the 'ToolAction' module (v0.23) to run Drone.
+MODTG:You need the 'TextGadgets' module (v0.49) to run Drone.
+MODURI:You need the 'URI' module to run Drone.
+# Error messages
+EXISTS:There is already a application with that name. Please try again with a different name.
+CHOICES:Error reading choices. %0
+CONFIGURE:Error running !Configure. %0
+UNTRAPPED:Untrapped exception. %0
+MSGCLOSED:Messages File Is Closed
+TOOLBOXERROR:Error processing Toolbox Error. %0
+BUGZQUERY:Error answering a query from Bugz. %0
+BUGZCREATE:Error creating Bugz report. %0
+NOBUGZ:Please locate the Bugz application. %0
+HOMEPAGE:Error viewing Homepage. %0
+SENDEMAIL:Error sending E-Mail. %0
+MQUIT:Error receiving 'Quit' Message. %0
+TQUIT:Error receiving Toolbox 'Quit' Message. %0
+VIEWMANUAL:Error opening Manual. %0
+VIEWIHELP:Error running starting interactive help. %0
+VIEWCHAPTER:Error opening chapter in manual. %0 
+OBEY:An error occured while creating obey files - %0. Some files may be incomplete. Do you want to continue ?
+#
+UNTITLED:Untitled
+READCHOICES:Reading choices
+DIRSTRUCT:Creating Dir Structure

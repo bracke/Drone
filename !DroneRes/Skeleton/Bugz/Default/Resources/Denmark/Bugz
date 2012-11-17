@@ -1,0 +1,68 @@
+# This is a Bugz description file
+[*Title]
+<DRONE_APPNAME>
+
+[*Info]
+Program: <DRONE_APPNAME>
+Distribution: Uden forbehold
+Version: X.XX
+Release: Fuldt offentligt release
+
+[*Mail]
+<DRONE_EMAIL>
+
+[*Cat]
+
+
+[*Modules]
+AcornURI
+WindowManager
+MessageTrans
+Toolbox
+Window
+IconBar
+Menu
+ProgInfo
+Scale
+SaveAs
+FileInfo
+ToolAction
+ColourDBox
+ColourMenu
+DCS
+FontDBox
+FontMenu
+PrintDBox
+TextGadgets
+StrongHelp
+
+[*Show]
+<DRONE_APPNAME>$Dir
+<DRONE_APPNAME>Res$Path
+Choices$Dir
+Choices$Path
+Choices$Write
+Wimp$ScrapDir
+StrongHelp$Dir
+ConfiX$Dir
+<DRONE_APPNAME>$Help
+<DRONE_APPNAME>$Version
+<DRONE_APPNAME>$Web
+<DRONE_APPNAME>$Title
+<DRONE_APPNAME>$Publisher
+<DRONE_APPNAME>$Description
+
+[*Cat]
+Beskriv venligst fejlen og hvad der førte til fejlen så detaljeret som muligt.
+
+[Ikon menu]
+Angiv i hvilket undermenu fejlen optrådte og hvis du har valgt noget i menuen så skriv hvad du valgte og om du gjorde det med musen eller brugte en genvej. 
+
+[Indstillinger]
+Ved problemer med indstillingerne så angiv hvordan du har åbnet indstillingsvinduet (menu,genvej,musklik) og hvilken fejlmelding du fik.
+
+[Fejl rapport - Bugz]
+Hvis du har problemer med at generere en fejl rapport så husk at det både kan være <DRONE_APPNAME> og Bugz der er skyld i dette.
+
+[Manual]
+Meld alle fejl du finder i manualen - også sproglige.

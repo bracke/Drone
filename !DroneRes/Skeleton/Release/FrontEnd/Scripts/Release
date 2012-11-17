@@ -1,0 +1,196 @@
+| StrongEd$WrapWidth=256
+| StrongEd$Mode=Obey
+|
+
+do Set Release$Dir <Obey$Dir>.^
+<Release$Dir>.!Boot
+
+Set HomePage$Dir SCSI::Obelix.$.Projekter.Hjemmeside.Target
+Set UpdVersion$Dir <Release$Dir>.Tools
+Set CheckTags$Dir SCSI::Obelix.$.Projekter.Code.Scripts.CheckTags
+If "<Spr2Png$Dir>"="" Then Set Spr2Png$Dir SCSI::Obelix.$.Misc.Grafik.PNG.!Spr2Png
+
+Dir <Release$Dir>
+
+ECHO **************************
+ECHO ** Creating application **
+ECHO **************************
+ECHO
+
+do ?leaf <Release$Dir>
+do Set ReleaseAppname <Leaf>
+
+| Remove pling
+if ReleaseAppname LEFT 1 = "!" then SetEval ReleaseAppname ReleaseAppname RIGHT (LEN ReleaseAppname - 1)
+
+do ECHO Release version of:         ***    <ReleaseAppname>    ***
+ECHO
+
+<Release$Dir>.Tools.GetVersion | Set ReleaseRelease
+
+ECHO
+ECHO Creating target directory
+ECHO -------------------------
+
+do Set ReleaseTarget$Dir <<DRONE_APPNAME>$Dir>.^.<ReleaseRelease>
+CDir <ReleaseTarget$Dir>
+ECHO done!
+
+do spool <ReleaseTarget$Dir>.Log
+
+ECHO
+ECHO Creating target application
+ECHO ---------------------------
+
+do Set ReleaseTarget$Dir <ReleaseTarget$Dir>.!<ReleaseAppname>
+CDir <ReleaseTarget$Dir>
+ECHO done!
+
+Dir <Release$Dir>
+ECHO Stamping all source files
+ECHO -------------------------
+Repeat stamp adb -files -verbose
+ECHO
+ECHO Compile project with high optimisation
+ECHO --------------------------------------
+Run <Release$Dir>.Scripts.Compile
+ECHO done!
+
+ECHO Squeezing <ReleaseAppname>
+ECHO ------------------
+do Squeeze <Release$Dir>.<ReleaseAppname>
+ECHO Done
+ECHO
+
+ECHO
+ECHO Copying files
+ECHO -------------
+ECHO *** !Run...
+X copy <Release$Dir>.!Run <ReleaseTarget$Dir>.!Run ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Help...
+X copy <Release$Dir>.!Help <ReleaseTarget$Dir>.!Help ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites...
+x copy <Release$Dir>.IconSprite <ReleaseTarget$Dir>.IconSprite ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites...
+X copy <Release$Dir>.!Sprites <ReleaseTarget$Dir>.!Sprites ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Desc...
+X copy <Release$Dir>.Desc <ReleaseTarget$Dir>.Desc ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+do <Release$Dir>.Tools.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Desc
+
+ECHO *** Templates...
+X copy <Release$Dir>.Templates <ReleaseTarget$Dir>.Templates ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Messages...
+X copy <Release$Dir>.Messages <ReleaseTarget$Dir>.Messages ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+do ECHO *** <ReleaseAppname>...
+do copy <Release$Dir>.<ReleaseAppname> <ReleaseTarget$Dir>.<ReleaseAppname> ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Source...
+copy <Release$Dir>.adb <ReleaseTarget$Dir>.adb ~C~D~L~N~PQRS~TV
+copy <Release$Dir>.adc <ReleaseTarget$Dir>.adc ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+<Release$Dir>.Tools.GetLibSrc -IRASCALlib: <Release$Dir>.ali <ReleaseTarget$Dir>
+
+
+
+ECHO
+ECHO Creating UK HTML manual
+ECHO -----------------------
+do X Wipe <HomePage$Dir>.programming.manuals.<ReleaseAppname> ~CFR~V 
+do <KeyStroke$Lib>.Lower <ReleaseAppname>
+X Cdir <HomePage$Dir>.programming.manuals.<KS$Line>
+Text2HTML <Release$Dir>.!Help <HomePage$Dir>.programming.manuals.<KS$Line>.index/html <Release$Dir>.Header <HomePage$Dir>.^.Body <HomePage$Dir>.^.Footer
+<HomePage$Dir>.^.TextURL2HTML <HomePage$Dir>.programming.manuals.<KS$Line>.index/html <Wimp$ScrapDir>.TextURL2HTML
+copy <Wimp$ScrapDir>.TextURL2HTML <HomePage$Dir>.programming.manuals.<KS$Line>.index/html ~A~CDF~L~N~PQ~R~S~T~V
+Settype <HomePage$Dir>.programming.manuals.<KS$Line>.index/html &faf
+
+ECHO done!
+
+
+
+ECHO
+ECHO Creating Zip file
+ECHO -----------------
+do <KeyStroke$Lib>.Lower <ReleaseAppname>
+do SetEval ArchiveName "<KS$Line>" + "-<ReleaseRelease>" + "/zip"
+dir <ReleaseTarget$Dir>.^
+
+do minizip -9 -v -o <ArchiveName> !<ReleaseAppname>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Updating version info on homepage
+ECHO ---------------------------------
+do <HomePage$Dir>.^.Source.Code.NewVersion <ReleaseAppname> <HomePage$Dir>.^.Source.Lists.MPTools <ArchiveName> <ReleaseRelease>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Removing old file in homepage
+ECHO -----------------------------
+?leaf <OldArchive$File>
+X do wipe <HomePage$Dir>.files.<leaf> ~CF~RV
+ECHO done!
+ECHO
+
+ECHO
+ECHO Copying new file to homepage
+ECHO ----------------------------
+do copy <ArchiveName> <HomePage$Dir>.files.<ArchiveName> ~A~C~DF~L~N~PQ~R~S~TV
+ECHO done!
+ECHO
+
+ECHO
+ECHO Variables used for release generation
+ECHO -------------------------------------
+do ECHO TargetHelp         : <TargetHelp>
+do ECHO ReleaseAppname     : <ReleaseAppname>                       
+do ECHO ReleaseTarget$Dir  : <ReleaseTarget$Dir>                    
+do ECHO ReleaseRelease     : <ReleaseRelease>                       
+do ECHO ArchiveName        : <ArchiveName>                          
+do ECHO Release$Dir        : <Release$Dir>                          
+do ECHO OldArchive$File    : <OldArchive$File>                      
+do ECHO HomePage$Dir       : <HomePage$Dir>                         
+do ECHO leaf               : <leaf>                                 
+
+ECHO
+do ECHO <Sys$Time>
+
+ECHO
+ECHO Cleaning up
+ECHO -----------
+
+unset <TargetHelp>
+unset <ReleaseAppname>
+unset <ReleaseTarget$Dir>
+unset <ReleaseRelease>
+unset <ArchiveName>
+unset <Release$Dir>
+unset <OldArchive$File>
+unset <HomePage$Dir>
+unset <leaf>
+
+ECHO done!
+ECHO
+
+ECHO ********************************************
+ECHO *** Release version created succesfully! ***
+ECHO ********************************************
+
+Spool

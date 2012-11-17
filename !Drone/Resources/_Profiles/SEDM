@@ -1,0 +1,65 @@
+# Drone
+# Saved Wed,18 Feb 2004.21:59:32 by !ConfiX
+
+[Info]
+APPNAME:SEDModeEd
+PURPOSE:Edit StrongEd mode files
+AUTHOR:StrongEd developers
+LICENCE:Public Domain
+APPPAGE:http://www.arcsite.de/hp/bracke/programming/mptools.html
+HOMEPAGE:http://www.arcsite.de/hp/bracke/
+EMAIL:bbracke@web.de
+DATE:18/02/2004
+VERSION:1.00
+
+[Misc]
+RELEASETARGET:<SEDModeEdRes$Dir>.^
+WIMPSLOT:640
+DEBUGWIMPSLOT:1400
+NAME:!<DRONE_APPNAME>
+SPRITES:True
+SPRITESFILE:Default
+
+[Obey]
+BOOT:True
+BOOTFILE:Default
+RUN:True
+RUNFILE:Default
+TOOLBOX:True
+TOOLBOXFILE:Default
+DEBUG:True
+DEBUGFILE:Default
+HELP:True
+HELPFILE:Default
+CONFIGURE:True
+CONFIGUREFILE:Default
+
+[Language]
+UK:True
+UKFILE:Default
+GERMANY:True
+GERMANYFILE:Default
+
+[Code]
+CODE:True
+CODEFILE:Ada-RAsCaL
+
+[Scripts]
+RELEASE:True
+RELEASEFILE:Default
+COMPILE:True
+COMPILEFILE:AdaRelease
+IDE:True
+IDEFILE:Default
+CONFIX:True
+CONFIXFILE:Default
+BUGZ:True
+BUGZFILE:Default
+FRONTEND:False
+FRONTENDFILE:Default
+FRONTENDER:False
+FRONTENDERFILE:Default
+
+[Tools]
+TOOLS:True
+TOOLSFILE:All

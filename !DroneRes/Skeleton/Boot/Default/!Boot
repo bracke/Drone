@@ -1,0 +1,18 @@
+Run <Obey$Dir>.Resources.ResFind <DRONE_APPNAME>
+|
+Set <DRONE_APPNAME>$Help "<DRONE_APPNAME>Res:<DRONE_APPNAME>"
+Set <DRONE_APPNAME>$Version "<DRONE_VERSION>"
+Set <DRONE_APPNAME>$Web "<DRONE_APPPAGE>"
+Set <DRONE_APPNAME>$Title "<DRONE_APPNAME>"
+Set <DRONE_APPNAME>$Publisher "<DRONE_AUTHOR>"
+Set <DRONE_APPNAME>$Description "<DRONE_PURPOSE>"
+Run <<DRONE_APPNAME>$Dir>.Resources.ReadToken <DRONE_APPNAME>Res:Messages DESCRIPTION
+do Set <DRONE_APPNAME>$Description <ReadToken$Value>
+|
+Set <DRONE_APPNAME>Sprites 2
+RMEnsure UtilityModule 5.00 Set <DRONE_APPNAME>Sprites 1
+RMEnsure UtilityModule 4.00 Set <DRONE_APPNAME>Sprites 0
+If <<DRONE_APPNAME>Sprites> = 2 Then Iconsprites <<DRONE_APPNAME>$Dir>.!Sprites5
+If <<DRONE_APPNAME>Sprites> = 1 Then Iconsprites <<DRONE_APPNAME>$Dir>.!Sprites4
+If <<DRONE_APPNAME>Sprites> = 0 Then Iconsprites <<DRONE_APPNAME>$Dir>.!Sprites
+UnSet <DRONE_APPNAME>Sprites

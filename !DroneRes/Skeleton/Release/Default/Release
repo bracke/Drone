@@ -1,0 +1,595 @@
+| StrongEd$WrapWidth=256
+| StrongEd$Mode=Obey
+|
+
+do Set Release$Dir <Obey$Dir>
+<Release$Dir>.!Boot
+
+Set CCres$Dir <Boot$Dir>.Resources.!CCRes
+
+Set HomePage$Dir <Boot$Dir>.^.Projekter.Hjemmeside.Target
+If "<Spr2Png$Dir>"="" Then Set Spr2Png$Dir <Boot$Dir>.^.Grafik.Misc.!Spr2Png
+
+Dir <Release$Dir>
+
+ECHO **************************
+ECHO **                      **
+ECHO **    Sanity checks     **
+ECHO **                      **
+ECHO **************************
+ECHO
+ECHO _Config - Check
+
+ECHO
+
+ECHO    Compare UK._Config with Germany._Config
+<ReleaseScripts$Dir>.CheckCfx -T -Q -f <Release$Dir>.Resources.UK._Config -M <Release$Dir>.Resources.Germany._Config
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during _Config-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during _Config-check *****"
+
+ECHO    Compare UK._Config with Denmark._Config
+<ReleaseScripts$Dir>.CheckCfx -T -Q -f <Release$Dir>.Resources.UK._Config -M <Release$Dir>.Resources.Denmark._Config
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during _Config-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during _Config-check *****"
+
+ECHO
+
+ECHO    Checking Germany._Config
+<ReleaseScripts$Dir>.CheckCfx -T -Q -f <Release$Dir>.Resources.Germany._Config
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during _Config-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during _Config-check *****"
+
+ECHO    Checking Denmark._Config
+<ReleaseScripts$Dir>.CheckCfx -T -Q -f <Release$Dir>.Resources.Denmark._Config
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during _Config-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during _Config-check *****"
+
+ECHO
+
+ECHO Messages - Check
+
+ECHO
+
+ECHO    Compare UK.Messages with Germany.Messages
+<ReleaseScripts$Dir>.CheckMsgs -T -Q -f <Release$Dir>.Resources.UK.Messages -M <Release$Dir>.Resources.Germany.Messages
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check *****"
+
+ECHO    Compare UK.Messages with Denmark.Messages
+<ReleaseScripts$Dir>.CheckMsgs -T -Q -f <Release$Dir>.Resources.UK.Messages -M <Release$Dir>.Resources.Denmark.Messages
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check *****"
+
+ECHO
+
+ECHO    Checking Germany.Messages
+<ReleaseScripts$Dir>.CheckMsgs -T -Q -f <Release$Dir>.Resources.Germany.Messages
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check *****"
+
+ECHO    Checking Denmark.Messages
+<ReleaseScripts$Dir>.CheckMsgs -T -Q -f <Release$Dir>.Resources.Denmark.Messages
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check *****"
+
+ECHO
+
+ECHO    Finding used tokens
+<ReleaseScripts$Dir>.FindTokens <Release$Dir>.adb { > <Wimp$ScrapDir>.FindTokens }
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check II *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check II *****"
+
+<ReleaseScripts$Dir>.FindTokens <Release$Dir>.ads { >> <Wimp$ScrapDir>.FindTokens }
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check II *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check II *****"
+
+<ReleaseScripts$Dir>.FindTokens <RASCAL$Dir>.adb { >> <Wimp$ScrapDir>.FindTokens }
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check II *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check II *****"
+
+<ReleaseScripts$Dir>.FindTokens <RASCAL$Dir>.ads { >> <Wimp$ScrapDir>.FindTokens }
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check II *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check II *****"
+
+<ReleaseScripts$Dir>.FindTokens <Release$Dir>.!Boot { >> <Wimp$ScrapDir>.FindTokens }
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check II *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check II *****"
+
+<ReleaseScripts$Dir>.FindTokens <Release$Dir>.!Run-Release { >> <Wimp$ScrapDir>.FindTokens }
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check II *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check II *****"
+
+<ReleaseScripts$Dir>.FindTokens <Release$Dir>.!Toolbox { >> <Wimp$ScrapDir>.FindTokens }
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check II *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check II *****"
+
+<ReleaseScripts$Dir>.FindTokens <Release$Dir>.!Configure { >> <Wimp$ScrapDir>.FindTokens }
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check II *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check II *****"
+
+<ReleaseScripts$Dir>.FindTokens <Release$Dir>.!Help { >> <Wimp$ScrapDir>.FindTokens }
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check II *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check II *****"
+
+ECHO    Removing duplicates from list
+<ReleaseScripts$Dir>.CheckMsgs -Q -R -F <Wimp$ScrapDir>.FindTokens
+
+ECHO    Comparing list with messages file (UK)
+<ReleaseScripts$Dir>.CheckMsgs -T -Q -F <Release$Dir>.Resources.UK.Messages -M <Wimp$ScrapDir>.FindTokens
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check IV *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check IV *****"
+
+ECHO    Comparing list with messages file (Germany)
+<ReleaseScripts$Dir>.CheckMsgs -T -Q -F <Release$Dir>.Resources.Germany.Messages -M <Wimp$ScrapDir>.FindTokens
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check IV *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check IV *****"
+
+ECHO    Comparing list with messages file (Denmark)
+<ReleaseScripts$Dir>.CheckMsgs -T -Q -F <Release$Dir>.Resources.Denmark.Messages -M <Wimp$ScrapDir>.FindTokens
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during messages-check IV *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during messages-check IV *****"
+
+ECHO
+ECHO Done
+ECHO
+
+ECHO **************************
+ECHO **                      **
+ECHO ** Creating Application **
+ECHO **                      **
+ECHO **************************
+
+ECHO
+
+do ?leaf <Release$Dir>
+do Set ReleaseAppname <Leaf>
+
+| Remove pling
+if ReleaseAppname LEFT 1 = "!" then SetEval ReleaseAppname ReleaseAppname RIGHT (LEN ReleaseAppname - 1)
+
+do ECHO Release version of:         ***    <ReleaseAppname>    ***
+ECHO
+
+ECHO
+lex <Release$Dir>.^
+
+ECHO
+
+<ReleaseScripts$Dir>.GetVersion | Set ReleaseRelease
+
+ECHO
+do ECHO <Sys$Time>
+
+ECHO
+ECHO Creating target directory
+ECHO -------------------------
+
+do Set ReleaseTarget$Dir <<DRONE_APPNAME>$Dir>.^.<ReleaseRelease>
+CDir <ReleaseTarget$Dir>
+ECHO done!
+
+do spool <ReleaseTarget$Dir>.Log
+
+ECHO
+ECHO Creating target application
+ECHO ---------------------------
+
+do Set ReleaseTarget$Dir <ReleaseTarget$Dir>.!<ReleaseAppname>
+CDir <ReleaseTarget$Dir>
+ECHO done!
+
+ECHO Compile project with high optimisation
+ECHO --------------------------------------
+Run <Release$Dir>.Compile
+ECHO done!
+
+ECHO
+ECHO Copying files
+ECHO -------------
+
+ECHO *** !Boot...
+x copy <Release$Dir>.!Boot <ReleaseTarget$Dir>.!Boot ~C~D~L~N~PQRS~TV
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.!Boot
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on !Boot *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on !Boot *****"
+ECHO Done!
+
+ECHO *** !Run...
+copy <Release$Dir>.!Run-Release <ReleaseTarget$Dir>.!Run ~C~D~L~N~PQRS~TV
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.!Run
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on !Run *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on !Run *****"
+ECHO Done!
+
+ECHO *** !Help...
+copy <Release$Dir>.!Help <ReleaseTarget$Dir>.!Help ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Configure...
+copy <Release$Dir>.!Configure <ReleaseTarget$Dir>.!Configure ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Toolbox...
+copy <Release$Dir>.!Toolbox <ReleaseTarget$Dir>.!Toolbox ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites...
+x copy <Release$Dir>.IconSprite <ReleaseTarget$Dir>.IconSprite ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites...
+x copy <Release$Dir>.!Sprites <ReleaseTarget$Dir>.!Sprites ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites4...
+x copy <Release$Dir>.!Sprites4 <ReleaseTarget$Dir>.!Sprites4 ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites22...
+x copy <Release$Dir>.!Sprites22 <ReleaseTarget$Dir>.!Sprites22 ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !Sprites5...
+x copy <Release$Dir>.!Sprites5 <ReleaseTarget$Dir>.!Sprites5 ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Resources...
+copy <Release$Dir>.Resources <ReleaseTarget$Dir>.Resources ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.UK.Bugz
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on UK.Bugz *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on UK.Bugz *****"
+
+|do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.UK.Res
+|if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on UK.Res *****
+|if <DRONE_Script$Success> = "0" then Spool
+|if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on UK.Res *****"
+
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.UK.Messages
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on UK.Messages *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on UK.Messages *****"
+
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.Germany.Bugz
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Germany.Bugz *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Germany.Bugz *****"
+
+|do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.Germany.Res
+|if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Germany.Res *****
+|if <DRONE_Script$Success> = "0" then Spool
+|if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Germany.Res *****"
+
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.Germany.Messages
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Germany.Messages *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Germany.Messages *****"
+
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.Denmark.Bugz
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Denmark.Bugz *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Denmark.Bugz *****"
+
+|do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.Denmark.Res
+|if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Denmark.Res *****
+|if <DRONE_Script$Success> = "0" then Spool
+|if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Denmark.Res *****"
+
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <ReleaseTarget$Dir>.Resources.Denmark.Messages
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Denmark.Messages *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Denmark.Messages *****"
+
+ECHO
+ECHO Creating UK manual
+ECHO ------------------
+| Prepare manual for update - UK
+CDir <Wimp$ScrapDir>.Release
+X Wipe <Wimp$ScrapDir>.Release.*
+do Copy <ReleaseTarget$Dir>.Resources.UK.<ReleaseAppname>.* <Wimp$ScrapDir>.Release.*
+
+| Update manual - UK
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <Wimp$ScrapDir>.Release.!Root
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Manual root (UK)*****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Manual root (UK)*****"
+
+| Cleanup after update - UK
+X Wipe <ReleaseTarget$Dir>.Resources.UK.<ReleaseAppname>
+StrongCreate <ReleaseTarget$Dir>.Resources.UK.<ReleaseAppname>
+Copy  <Wimp$ScrapDir>.Release.* <ReleaseTarget$Dir>.Resources.UK.<ReleaseAppname>.*
+X Wipe <Wimp$ScrapDir>.Release
+
+ECHO
+ECHO Creating German manual
+ECHO ----------------------
+| Prepare manual for update - Germany
+CDir <Wimp$ScrapDir>.Release
+X Wipe <Wimp$ScrapDir>.Release.*
+do Copy <ReleaseTarget$Dir>.Resources.Germany.<ReleaseAppname>.* <Wimp$ScrapDir>.Release.*
+
+| Update manual - Germany
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <Wimp$ScrapDir>.Release.!Root
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Manual root (Germany)*****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Manual root (Germany)*****"
+
+| Cleanup after update - Germany
+X Wipe <ReleaseTarget$Dir>.Resources.Germany.<ReleaseAppname>
+StrongCreate <ReleaseTarget$Dir>.Resources.Germany.<ReleaseAppname>
+Copy  <Wimp$ScrapDir>.Release.* <ReleaseTarget$Dir>.Resources.Germany.<ReleaseAppname>.*
+X Wipe <Wimp$ScrapDir>.Release
+ECHO Done!
+
+ECHO
+ECHO Creating Danish manual
+ECHO ----------------------
+| Prepare manual for update - Denmark
+CDir <Wimp$ScrapDir>.Release
+X Wipe <Wimp$ScrapDir>.Release.*
+do Copy <ReleaseTarget$Dir>.Resources.Denmark.<ReleaseAppname>.* <Wimp$ScrapDir>.Release.*
+
+| Update manual - Denmark
+do <ReleaseScripts$Dir>.UpdVersion -v <ReleaseRelease> <Wimp$ScrapDir>.Release.!Root
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during UpdVersion on Manual root (Denmark)*****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during UpdVersion on Manual root (Denmark)*****"
+
+| Cleanup after update - Denmark
+X Wipe <ReleaseTarget$Dir>.Resources.Denmark.<ReleaseAppname>
+StrongCreate <ReleaseTarget$Dir>.Resources.Denmark.<ReleaseAppname>
+Copy  <Wimp$ScrapDir>.Release.* <ReleaseTarget$Dir>.Resources.Denmark.<ReleaseAppname>.*
+X Wipe <Wimp$ScrapDir>.Release
+ECHO Done!
+
+ECHO *** RunImage...
+x copy <Release$Dir>.RunImage <ReleaseTarget$Dir>.!RunImage ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** !RunImage...
+x copy <Release$Dir>.!RunImage <ReleaseTarget$Dir>.!RunImage ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Libraries...
+x copy <Release$Dir>.adb <ReleaseTarget$Dir>.adb ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Libraries...
+x copy <Release$Dir>.ads <ReleaseTarget$Dir>.ads ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+ECHO *** Libraries...
+x copy <Release$Dir>.adc <ReleaseTarget$Dir>.adc ~C~D~L~N~PQRS~TV
+ECHO Done!
+
+do x Wipe <ReleaseTarget$Dir>.ads.cvs
+do x Wipe <ReleaseTarget$Dir>.adb.cvs
+
+ECHO
+ECHO Get library files
+ECHO -----------------
+<ReleaseScripts$Dir>.GetLibSrc -IRASCALlib: <Release$Dir>.ali <ReleaseTarget$Dir>
+if <DRONE_Script$Success> = "0" then ECHO ***** ERROR during GetLibSrc *****
+if <DRONE_Script$Success> = "0" then Spool
+if <DRONE_Script$Success> = "0" then ERROR "***** ERROR during GetLibSrc *****"
+
+ECHO Done!
+
+ECHO
+ECHO Creating German text manual
+ECHO ---------------------------
+Seteval TargetHelp "<ReleaseTarget$Dir>.Resources.Germany." + "<ReleaseAppname>"
+<StrongHelp$Dir>.Utilities.!StHlp2Txt.StHlp2Txt-CLI -man <TargetHelp>
+Copy <Wimp$ScrapDir>.HelpText <ReleaseTarget$Dir>.Resources.germany.TextManual
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating German Manual Index
+ECHO ----------------------------
+<StrongHelp$Dir>.Utilities.!Contents.Content-CLI -man <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating German Manual Contents
+ECHO -------------------------------
+<StrongHelp$Dir>.Utilities.!Contents.Content-CLI -idx <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Modifying German Manual Contents
+ECHO --------------------------------
+sed "s/Contents$/Inhaltsverzeichnis/gi" <TargetHelp>.!Contents > <Wimp$ScrapDir>.SEDContents
+x copy <Wimp$ScrapDir>.SEDContents <TargetHelp>.!Contents A~CF~L~N~PQ~R~S~TV
+
+
+ECHO Cleaning up German StrongHelp manual
+ECHO ------------------------------------
+<StrongHelp$Dir>.Utilities.CleanCopy <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating Danish text manual
+ECHO ---------------------------
+Seteval TargetHelp "<ReleaseTarget$Dir>.Resources.Denmark." + "<ReleaseAppname>"
+<StrongHelp$Dir>.Utilities.!StHlp2Txt.StHlp2Txt-CLI -man <TargetHelp>
+Copy <Wimp$ScrapDir>.HelpText <ReleaseTarget$Dir>.Resources.Denmark.TextManual
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating Danish Manual Index
+ECHO ----------------------------
+<StrongHelp$Dir>.Utilities.!Contents.Content-CLI -man <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating Danish Manual Contents
+ECHO -------------------------------
+<StrongHelp$Dir>.Utilities.!Contents.Content-CLI -idx <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Modifying Danish Manual Contents
+ECHO --------------------------------
+sed "s/Contents$/Inhaltsverzeichnis/gi" <TargetHelp>.!Contents > <Wimp$ScrapDir>.SEDContents
+x copy <Wimp$ScrapDir>.SEDContents <TargetHelp>.!Contents A~CF~L~N~PQ~R~S~TV
+
+
+ECHO Cleaning up Danish StrongHelp manual
+ECHO ------------------------------------
+<StrongHelp$Dir>.Utilities.CleanCopy <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating UK text manual
+ECHO -----------------------
+Seteval TargetHelp "<ReleaseTarget$Dir>.Resources.uk." + "<ReleaseAppname>"
+<StrongHelp$Dir>.Utilities.!StHlp2Txt.StHlp2Txt-CLI -man <TargetHelp>
+Copy <Wimp$ScrapDir>.HelpText <ReleaseTarget$Dir>.Resources.uk.TextManual
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating UK Manual Index
+ECHO ------------------------
+<StrongHelp$Dir>.Utilities.!Contents.Content-CLI -man <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating UK Manual Contents
+ECHO ---------------------------
+<StrongHelp$Dir>.Utilities.!Contents.Content-CLI -idx <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Cleaning up UK StrongHelp manual
+ECHO --------------------------------
+<StrongHelp$Dir>.Utilities.CleanCopy <TargetHelp>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating UK HTML manual
+ECHO -----------------------
+do X Wipe <HomePage$Dir>.manuals.<ReleaseAppname>.* ~CFR~V 
+Dir <ReleaseTarget$Dir>.Resources.uk
+do SHtoHTML <HomePage$Dir>.manuals <ReleaseAppname>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Modifying UK HTML manual
+ECHO ------------------------
+repeat <HomePage$Dir>.^.AdaptSH-HTML <HomePage$Dir>.manuals.<ReleaseAppname> -type HTML
+ECHO done!
+ECHO
+
+ECHO
+ECHO Creating Zip file
+ECHO -----------------
+do <KeyStroke$Lib>.Lower <ReleaseAppname>
+do SetEval ArchiveName "<KS$Line>" + "-<ReleaseRelease>" + "/zip"
+dir <ReleaseTarget$Dir>.^
+
+|do zip -r <ArchiveName> !<ReleaseAppname>
+do minizip -9 -v -o <ArchiveName> !<ReleaseAppname>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Updating version info on homepage
+ECHO ---------------------------------
+do <HomePage$Dir>.^.Source.Code.NewVersion <ReleaseAppname> <HomePage$Dir>.^.Source.Lists.misc files.<ArchiveName> <ReleaseRelease>
+ECHO done!
+ECHO
+
+ECHO
+ECHO Removing old file in homepage
+ECHO -----------------------------
+X ?leaf <OldArchive$File>
+do X wipe <HomePage$Dir>.files.<leaf> ~CF~RV
+ECHO done!
+ECHO
+
+ECHO
+ECHO Copying new file to homepage
+ECHO ----------------------------
+do x copy <ArchiveName> <HomePage$Dir>.files.<ArchiveName> ~A~C~DF~L~N~PQ~R~S~TV
+ECHO done!
+ECHO
+
+
+ECHO
+ECHO Variables used for release generation
+ECHO -------------------------------------
+do ECHO TargetHelp         : <TargetHelp>
+do ECHO ReleaseAppname     : <ReleaseAppname>                       
+do ECHO ReleaseTarget$Dir  : <ReleaseTarget$Dir>                    
+do ECHO ReleaseRelease     : <ReleaseRelease>                       
+do ECHO ArchiveName        : <ArchiveName>                          
+do ECHO Release$Dir        : <Release$Dir>                          
+do ECHO OldArchive$File    : <OldArchive$File>                      
+do ECHO HomePage$Dir       : <HomePage$Dir>                         
+do ECHO leaf               : <leaf>                                 
+
+ECHO
+do ECHO <Sys$Time>
+ECHO
+
+
+ECHO
+ECHO Cleaning up
+ECHO -----------
+
+unset <TargetHelp>
+unset <ReleaseAppname>
+unset <ReleaseTarget$Dir>
+unset <ReleaseRelease>
+unset <ArchiveName>
+unset <Release$Dir>
+unset <OldArchive$File>
+unset <HomePage$Dir>
+unset <leaf>
+unset <DRONE_Script$Success>
+ECHO done!
+ECHO
+
+ECHO
+ECHO ********************************************
+ECHO *** Release version created succesfully! ***
+ECHO ********************************************
+
+Spool

@@ -1,0 +1,36 @@
+# StrongEd$Mode=Message
+_TaskName:Release
+VERS:x.xx (xx/xx/xxxx)
+# Fehler Meldungen für die 'Obey' Dateien
+RESERR:Meldung von Release
+MODTB:Das Modul 'Toolbox' ist für Release erforderlich.
+MODWD:Das Modul 'Window' ist für Release erforderlich.
+MODIB:Das Modul 'IconBar' ist für Release erforderlich.
+MODMU:Das Modul 'Menu' ist für Release erforderlich.
+MODPI:Das Modul 'ProgInfo' ist für Release erforderlich.
+MODSC:Das Modul 'Scale' ist für Release erforderlich.
+MODSAVE:Das Modul 'SaveAs' ist für Release erforderlich.
+MODFI:Das Modul 'FileInfo' ist für Release erforderlich.
+MODTA:Das Modul 'ToolAction' ist für Release erforderlich.
+MODCD:Das Modul 'ColourDBox' ist für Release erforderlich.
+MODCM:Das Modul 'ColourMenu' ist für Release erforderlich.
+MODDCS:Das Modul 'DCS' ist für Release erforderlich.
+MODFB:Das Modul 'FontDBox' ist für Release erforderlich.
+MODFM:Das Modul 'FontMenu' ist für Release erforderlich.
+MODPT:Das Modul 'PrintDBox' ist für Release erforderlich.
+MODQT:Das Modul 'Quit' ist für Release erforderlich.
+MODTG:Das Modul 'TextGadgets' ist für Release erforderlich.
+MODURI:Das Modul 'URI' ist für Release erforderlich.
+# Fehler Meldungen
+EXISTS:Es gibt schon eine Applikation mit diesem Namen, bitte einen anderen Namen wählen.
+UOPENMSG:Die 'Messages' Datei konnte nicht geöffnet werden.
+MSGCLOSED:Die 'Messages' Datei ist nicht offen.
+MSGNFOUND:Der 'Message-TAG' wurde nicht gefunden.
+#
+err106:Fehler während der erstellung der Fehler Meldung!.
+err132:Fehler während des öffnens der Configuration.
+err133:Fehler beim öffnen des Handbuches.
+err134:Fehler beim öffnen der Homepage.
+err135:Fehler beim öffnen des Email-dialog.
+#
+UNTITLED:Namenlos
